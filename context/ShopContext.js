@@ -98,7 +98,10 @@ export const ShopContext = ({ children }) => {
         addProduct,
         setShowCart,
         changeCartItemQuantity,
-        removeProduct
+        removeProduct,
+        setCartItems,
+        setTotalPrice,
+        setTotalQuantities
       }}
     >
       {children}

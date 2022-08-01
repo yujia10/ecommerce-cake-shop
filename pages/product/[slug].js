@@ -11,13 +11,19 @@ import {useShopContext} from '../../context/ShopContext'
 
 const ProductDetails = ({ product, products }) => {
   const { image, name, details, price } = product;
-  const {incQty,decQty,qty,addProduct} = useShopContext();
+  const {incQty,decQty,qty,addProduct,setShowCart} = useShopContext();
+
+  const handleBuyNow = () => {
+    addProduct(product,qty);
+    setShowCart(true)
+  }
+
   return (
     <div>
       <div className="product-detail-container">
         <div>
           <div className="image-container">
-            <img src={urlFor(image && image[0])} />
+            <img src={urlFor(image && image[0])} className="product-detail-image" />
           </div>
         </div>
         <div className="product-detail-desc">
@@ -41,7 +47,7 @@ const ProductDetails = ({ product, products }) => {
               <span className="minus" onClick={decQty}>
                 <AiOutlineMinus />
               </span>
-              <span className="num" onClick="">
+              <span className="num">
                 {qty}
               </span>
               <span className="plus" onClick={incQty}>
@@ -53,7 +59,7 @@ const ProductDetails = ({ product, products }) => {
             <button type="button" className="add-to-cart" onClick={()=>addProduct(product, qty)}>
               Add to Cart
             </button>
-            <button type="button" className="buy-now" onClick="">
+            <button type="button" className="buy-now" onClick={handleBuyNow}>
               Buy Now
             </button>
           </div>

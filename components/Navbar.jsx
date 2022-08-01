@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
-import { AiOutlineShopping } from "react-icons/ai";
+import { AiOutlineShopping  } from "react-icons/ai";
+import {GiCupcake} from "react-icons/gi"
 
 import { Cart } from "./"
 
@@ -11,8 +12,8 @@ const Navbar = () => {
 
   return (
     <div className="navbar-container">
-      <p className="logo">
-        <Link href="/">S&S Succulents</Link>
+      <p className="logo" >
+        <Link href="/"><GiCupcake /></Link>
       </p>
 
       <button
